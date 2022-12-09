@@ -1,0 +1,43 @@
+{
+  "name": "js-portfolio",
+  "version": "1.0.0",
+  "description": "A minimal portfolio with Vanilla JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./scripts/create-env.js && webpack --mode production --config webpack.config.js",
+    "dev": "webpack --config webpack.config.dev.js",
+    "start": "webpack serve --config webpack.config.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://hasca-gh.github.io/js-portfolio.git"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Humberto Asca <hasca@ciplima.org.pe>",
+  "license": "none",
+  "homepage": "https://github.com/HASCA-GH/js-portfolio.git",
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.1.0",
+    "css-loader": "^6.7.1",
+    "dotenv-webpack": "^7.1.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "stylus": "^0.56.0",
+    "stylus-loader": "^6.2.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
