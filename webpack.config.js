@@ -27,14 +27,14 @@ module.exports = {
     },
     module: {
         rules: [
-            { 
+            {  //Babel allows javascript to be compatible in all browsers
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
                 }
             },
-            {
+            { //Allow css or style to be included
                 test: /\.css|.styl$/i,
                 use: [MiniCssExtractPlugin.loader,
                 'css-loader',
@@ -45,7 +45,7 @@ module.exports = {
                 test: /\.png/,
                 type: 'asset/resource'
             },
-            {
+            {   //Allow fonts to be included in the bundle. In this case these font format are woff and woff2 which were dowloaded from https://gwfh.mranftl.com/fonts
                 test: /\.(woff|woff2)$/,
                 use:{
                     loader:'url-loader',
@@ -53,8 +53,8 @@ module.exports = {
                         limit: 10000,
                         mimetype: "application/font-woff",
                         name: "[name].[contenthash].[ext]",
-                        outputPath: "./assets/fonts",
-                        publicPath: "../assets/fonts",
+                        outputPath: "./assets/fonts/",
+                        publicPath: "../assets/fonts/",
                         esModule: false,
                     }
                 }
@@ -70,6 +70,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'assets/[name].[contenthash].css'
         }), 
+        //Files like images of fonts etc are copied to the distribution folder that webpack  generates
         new CopyPlugin({
             patterns: [
                 {
@@ -81,6 +82,7 @@ module.exports = {
         new Dotenv(),
         new CleanWebpackPlugin(),
     ],
+    // Optimización: hashes, compresión y minificación de archivos
     optimization: {
         minimize: true,
         minimizer:[
